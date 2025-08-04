@@ -1,0 +1,364 @@
+/* Basic page setup */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Navigation styles */
+header {
+    background-color: #333;
+    padding: 1em 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main content area */
+main {
+    max-width: 1300px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Product grid layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 0 auto;
+    padding: 2rem 0;
+    width: 100%;
+    max-width: 1300px;
+}
+
+/* Product card */
+.card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    box-shadow: 0 4px 20px rgba(44,62,80,0.11);
+}
+
+/* Image container */
+.card__image {
+    width: 100%;
+    height: 180px;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.card__image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Title and header */
+.card__header {
+    padding: 0.9rem 1rem 0.2rem 1rem;
+    text-align: left;
+    min-height: 48px;
+}
+
+.product__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #fff4f4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Price and description */
+.card__content {
+    padding: 0.5rem 1rem;
+    flex-grow: 1;
+}
+
+.product__price {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #181818;
+    margin-bottom: 0.35rem;
+}
+
+.product__description {
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    min-height: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.card.product-item {
+    position: relative;
+}
+
+.card-link {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 2;
+    /* Makes the link fill the card */
+    text-indent: -9999px;
+    background: rgba(0,0,0,0); /* fully transparent */
+    cursor: pointer;
+}
+.card__actions, .card__actions * {
+    position: relative;
+    z-index: 3;
+}
+
+.product-detail {
+    display: flex;
+    gap: 2.5rem;
+    max-width: 850px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 18px rgba(0,0,0,0.06);
+    padding: 2rem;
+    align-items: flex-start;
+}
+.detail-image img {
+    max-width: 300px;
+    border-radius: 8px;
+}
+.detail-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+@media (max-width: 700px) {
+    .product-detail {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1rem;
+    }
+    .detail-image img {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+
+/* Action area */
+.card__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7em;
+    padding: 0.8rem 1rem 1rem 1rem;
+    background: #f9f9f9;
+}
+
+.card__actions form {
+    display: inline-block;
+    margin: 0;
+}
+
+.card__actions .btn {
+    min-width: 82px;
+    margin: 0;
+}
+
+.card__actions .btn:first-child {
+    border-color: #388e3c;
+    color: #388e3c;
+}
+.card__actions .btn:first-child:hover {
+    background: #388e3c;
+    color: #fff;
+}
+
+/* Special styling for Delete */
+.card__actions .btn:last-child,
+.card__actions form .btn {
+    border-color: #e53935;
+    color: #e53935;
+    background: transparent;
+}
+
+.card__actions .btn:last-child:hover,
+.card__actions form .btn:hover {
+    background: #e53935;
+    color: #fff;
+}
+
+nav ul li a.active {
+    color: #fbb914 !important;
+
+}
+
+
+.btn {
+    background-color: transparent;
+    border: 2px solid #5c6bc0;
+    color: #5c6bc0;
+    padding: 0.45em 1.2em;
+    font-size: 0.95rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+    background: #5c6bc0;
+    color: #fff;
+}
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0 12px 0 0;
+    z-index: 200;
+}
+.nav-toggle span {
+    display: block;
+    height: 4px;
+    width: 28px;
+    margin: 4px 0;
+    background: #222; 
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+.nav-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile nav styles */
+@media (max-width: 800px) {
+    nav {
+        position: relative;
+    }
+    .nav-toggle {
+        display: flex;
+        position: absolute;
+        right: 10px;
+        top: 18px;
+    }
+    nav ul {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        left: 0;
+        background: #222;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 0;
+        display: none;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        z-index: 100;
+    }
+    nav ul.show-nav {
+        display: flex;
+        animation: fadeInDown 0.25s;
+    }
+    nav ul li {
+        margin: 0.5rem 1.5rem;
+        width: 100%;
+    }
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 0.8rem 0;
+        font-size: 1.09rem;
+        color: #ffffff;
+        border-bottom: 1px solid #333;
+    }
+    nav ul li a:last-child {
+        border-bottom: none;
+    }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px);}
+    to   { opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive tweaks for mobile */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 1rem;
+    }
+    .card__image {
+        height: 120px;
+    }
+    .product__title {
+        font-size: 0.97rem;
+    }
+    .product__price {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 0 0.3rem;
+    }
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.8rem;
+        padding: 1rem 0;
+    }
+    .card__image {
+        height: 85px;
+    }
+    .product__title {
+        font-size: 0.91rem;
+    }
+    .product__description {
+        font-size: 0.86rem;
+    }
+}
